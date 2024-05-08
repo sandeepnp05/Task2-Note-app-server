@@ -26,3 +26,8 @@ export const createNote = async (title, content) => {
   const [rows] = await pool.query(`SELECT * FROM notes WHERE id = ?`, [id]);
   return rows[0];
 };
+
+export const removeNote = async (id) => {
+    await pool.query(`DELETE FROM notes WHERE id = ?`, [id]);
+  };
+  
